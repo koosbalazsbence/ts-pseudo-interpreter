@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pseudo-code Interpreter in Typescript & Next.js
 
-## Getting Started
+## Overview
+This repository contains a small interpreter implemented in Typescript for a simplified pseudo-code language.  
+The project was created for educational purposes, mainly to demonstrate fundamental concepts of **parsing, interpretation, and execution of high-level instructions**.  
 
-First, run the development server:
+Unlike full programming languages, this pseudo-code syntax is intentionally minimal. The focus is on supporting **basic algorithmic constructs** such as sequences, conditionals, and loops, in order to highlight the essential mechanisms of an interpreter without unnecessary complexity.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Language Specification
+
+The pseudo-code language supports the following categories of instructions:
+
+- **Sequence**  
+  Instructions are executed in the order they appear.  
+
+- **Input/Output**  
+  ```
+  input variable
+  output expression
+  ```
+
+- **Conditionals**  
+  ```
+  if condition then
+    instruction(s)
+  else
+    instruction(s)
+  endif
+  ```
+
+- **Loops**  
+  ```
+  while condition do
+    instruction(s)
+  enddo
+  ```
+
+- **Termination**  
+  ```
+  stop
+  ```
+
+### Example Program
+```
+input n
+x = 0
+while n > 0 do
+  x = x + n
+  n = n - 1
+enddo
+output x
+stop
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This program computes the sum of integers from `n` down to `1`.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Design Approach
+- **Lexical and Syntactic Parsing**  
+  A basic parser converts pseudo-code text into an internal representation (abstract syntax tree or equivalent).  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Execution Model**  
+  The interpreter traverses the representation and executes instructions according to the semantics defined above.  
 
-## Learn More
+- **Extensibility**  
+  The language definition can be expanded with additional control structures, functions, or data types as needed.  
 
-To learn more about Next.js, take a look at the following resources:
+## Educational Goals
+- Illustrate the relationship between **syntax** and **semantics** in programming languages.  
+- Provide a simple environment for experimenting with interpreter construction.  
+- Show how high-level control structures can be reduced to basic execution steps.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Disclaimer
+This is a small-scale academic project and not intended for production use. Its main purpose is didactic: to serve as a starting point for students learning about language design and interpreters.  
